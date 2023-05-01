@@ -1,0 +1,29 @@
+
+<div class="container-fluid h-100 d-flex align-items-center justify-content-center">
+    <div class="card shadow mb-4 card-padding" style="width: 80%;">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Matricule</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de Naissance</th>
+                    <th>Addresse</th>
+                    <th>Numéro de telephone</th>
+                </tr>
+                <tbody *ngFor="let etudiant of etudiants">
+                    <tr>
+                        <td>{{etudiant.matriculeEtudiant}}</td>
+                        <td>{{etudiant.nomEtudiant}}</td>
+                        <td>{{etudiant.prenomEtudiant}}</td>
+                        <td>{{etudiant.dateNaissEtudiant | date:'dd/MM/yyyy'}}</td>
+                        <td>{{etudiant.addresseEtudiant}}</td>
+                        <td>{{etudiant.telEtudiant}}</td>
+                        <td><a class="btn btn-danger" (click)="supprimerProduit(etudiant)">Supprimer</a></td>
+                        <td><a class="btn btn-success" [routerLink]="['/update-etudiant',etudiant.matriculeEtudiant]">Modifier</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
