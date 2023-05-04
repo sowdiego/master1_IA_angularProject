@@ -7,7 +7,7 @@
             <form>
                 <div class="col-sm-10 col-md-10 col-lg-10">
                     <label>Matricule</label>
-                    <input type="text" [(ngModel)]="currentEtudiant.matriculeEtudiant" name="matriculeEtudiant" class="form-control">
+                    <input type="text" disabled [(ngModel)]="currentEtudiant.matriculeEtudiant" name="matriculeEtudiant" class="form-control">
                 </div>
                 <div class="col-sm-10 col-md-10 col-lg-10">
                     <label>Nom</label>
@@ -28,6 +28,14 @@
                 <div class="col-sm-10 col-md-10 col-lg-10">
                     <label>Numéro de téléphone</label>
                     <input type="text" [(ngModel)]="currentEtudiant.telEtudiant" name="telEtudiant" class="form-control">
+                </div>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <label>Classe</label>
+                    <select #cricket (change)="update($event)" class="form-control">
+                        <option *ngFor="let classe of etudiantService.classes" [value]="classe.id">
+                            {{classe.libelle}}
+                        </option>
+                    </select>
                 </div>
                 <div class="mt-2">
                     <button type="submit" (click)="updateEtudiant()" class="btn btn-success">Modifier</button>

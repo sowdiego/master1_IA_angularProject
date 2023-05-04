@@ -1,6 +1,11 @@
-
 <div class="container-fluid h-100 d-flex align-items-center justify-content-center">
     <div class="card shadow mb-4 card-padding" style="width: 80%;">
+        <div class="row" style="margin-top: 20px;margin-left: 20px;">
+            <div class="col-md-8">
+                <input type="text" placeholder="Recherche par nom, prénom, matricule" [(ngModel)]="keyWord" name="key"
+                    class="form-control">
+            </div>
+        </div>
         <div class="card-body">
             <table class="table table-striped">
                 <tr>
@@ -11,7 +16,7 @@
                     <th>Addresse</th>
                     <th>Numéro de telephone</th>
                 </tr>
-                <tbody *ngFor="let etudiant of etudiants">
+                <tbody *ngFor="let etudiant of etudiantService.etudiants | filter: keyWord">
                     <tr>
                         <td>{{etudiant.matriculeEtudiant}}</td>
                         <td>{{etudiant.nomEtudiant}}</td>
@@ -20,7 +25,8 @@
                         <td>{{etudiant.addresseEtudiant}}</td>
                         <td>{{etudiant.telEtudiant}}</td>
                         <td><a class="btn btn-danger" (click)="supprimerProduit(etudiant)">Supprimer</a></td>
-                        <td><a class="btn btn-success" [routerLink]="['/update-etudiant',etudiant.matriculeEtudiant]">Modifier</a></td>
+                        <td><a class="btn btn-success"
+                                [routerLink]="['/update-etudiant',etudiant.id]">Modifier</a></td>
                     </tr>
                 </tbody>
             </table>

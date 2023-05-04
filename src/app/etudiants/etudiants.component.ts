@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Etudiant } from '../model/etudiant.model';
 import { EtudiantService } from '../services/etudiant.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-etudiants',
@@ -9,12 +10,14 @@ import { EtudiantService } from '../services/etudiant.service';
 })
 export class EtudiantsComponent implements OnInit {
 
-  etudiants : Etudiant[] = [] ; 
-  constructor(private etudiantService: EtudiantService ) {
+  etudiants : Etudiant[] = [] ;
+  keyWord: string = ""
+  constructor(public etudiantService: EtudiantService, private http: HttpClient ) {
    
    }
   ngOnInit(): void {
-    this.etudiants = this.etudiantService.listeEtudiant();
+    this.etudiantService.listeEtudiant();
+    this.etudiantService.listeClasses();
   }
 
   supprimerProduit(e: Etudiant){
@@ -22,7 +25,10 @@ export class EtudiantsComponent implements OnInit {
       let conf = confirm("Etes-vous sûr ?"); 
       if (conf)
         this.etudiantService.supprimerEtudiant(e);
+        this.etudiantService.listeEtudiant();
       }
+
+
       
 
 }

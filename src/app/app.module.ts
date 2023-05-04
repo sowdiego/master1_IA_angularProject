@@ -7,6 +7,9 @@ import { EtudiantsComponent } from './etudiants/etudiants.component';
 import { AddEtudiantComponent } from './add-etudiant/add-etudiant.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateEtudiantComponent } from './update-etudiant/update-etudiant.component';
+import { DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -19,9 +22,11 @@ import { UpdateEtudiantComponent } from './update-etudiant/update-etudiant.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

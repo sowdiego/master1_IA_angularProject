@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Etudiant } from '../model/etudiant.model';
 import { EtudiantService } from '../services/etudiant.service';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-etudiant',
@@ -9,15 +10,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-etudiant.component.css']
 })
 export class AddEtudiantComponent implements OnInit{
-  ngOnInit(): void {
-  }
   newEtudiant = new Etudiant();
+  constructor(public etudiantService: EtudiantService,  private router :Router ) { }
 
-  constructor(private etudiantService: EtudiantService,  private router :Router) { }
-  addEtudiant(){
-    console.log(this.newEtudiant);
-    this.etudiantService.ajouterEtudiant(this.newEtudiant);
-    this.router.navigate(['etudiants']);
-   }
+  ngOnInit(): void { 
+    this.newEtudiant.matriculeEtudiant = this.etudiantService.generateMatricule()
+  }
+
+
+  addEtudiant() {
+    this.etudiantService.ajouterEtudiant(this.newEtudiant)
+      .subscribe(data => {
+        console.log(data)
+        this.router.navigate(['etudiants']);
+      })      
+  }
+
+  update(event: any){
+    console.log(event);
+    
+  }
+   
+
+   
 
 }

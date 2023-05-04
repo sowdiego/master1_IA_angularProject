@@ -1,0 +1,89 @@
+{
+  "etudiants": [
+    {
+      "id": 2,
+      "matriculeEtudiant": "Et2-01052023123600-@",
+      "nomEtudiant": "Ndiaye",
+      "prenomEtudiant": "Mamad",
+      "dateNaissEtudiant": "2023-05-12",
+      "addresseEtudiant": "gueultapée",
+      "telEtudiant": "777838633",
+      "classeId": 2
+    },
+    {
+      "id": 3,
+      "matriculeEtudiant": "Et3-01052023123600-@",
+      "nomEtudiant": "Kane",
+      "prenomEtudiant": "Salif",
+      "dateNaissEtudiant": "2023-05-27",
+      "addresseEtudiant": "gueultapée",
+      "telEtudiant": "777838633",
+      "classeId": 3
+    },
+    {
+      "id": 4,
+      "matriculeEtudiant": "Et4-01052023123600-@",
+      "nomEtudiant": "SY",
+      "prenomEtudiant": "Ibrahima diof",
+      "dateNaissEtudiant": "2023-05-21",
+      "addresseEtudiant": "gueultapée",
+      "telEtudiant": "777838633",
+      "classeId": 1
+    },
+    {
+      "matriculeEtudiant": "Et-03052023074046-@",
+      "nomEtudiant": "Salade",
+      "prenomEtudiant": "Lamine",
+      "dateNaissEtudiant": "2023-05-13",
+      "addresseEtudiant": "sangalkam",
+      "telEtudiant": "00000000",
+      "id": 5,
+      "classeId": 2
+    },
+    {
+      "matriculeEtudiant": "Et-03052023091055-@",
+      "nomEtudiant": "zen",
+      "prenomEtudiant": "Lamine",
+      "dateNaissEtudiant": "2019-06-05",
+      "addresseEtudiant": "sangalkam",
+      "telEtudiant": "00000000",
+      "id": 6,
+      "classeId": 2
+    }
+  ],
+  "classes": [
+    {
+      "id": 1,
+      "libelle": "IAGE"
+    },
+    {
+      "id": 2,
+      "libelle": "GL"
+    },
+    {
+      "id": 3,
+      "libelle": "RT"
+    },
+    {
+      "id": 4,
+      "libelle": "IA"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

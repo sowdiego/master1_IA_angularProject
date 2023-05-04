@@ -1,80 +1,91 @@
 import { Injectable } from '@angular/core';
-import { Etudiant } from '../model/etudiant.model';
+import { Classe, Etudiant } from '../model/etudiant.model';
+import { DatePipe } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EtudiantService {
-
-  etudiants: Etudiant[];
+ 
+  baseURL = "http://localhost:3000"
+  etudiantsObs:  Observable<Etudiant[]>[] = [];
+  etudiants:Etudiant[] = [];
+  classes:Classe[] = [];  
   etudiant!: Etudiant;
-  constructor() {
-    this.etudiants = [
-      {id: 1, matriculeEtudiant: "Et1-01052023123600-@", nomEtudiant: "Aw", prenomEtudiant: "Mamadou", dateNaissEtudiant: new Date("01/14/1999"), addresseEtudiant: "gueultapée", telEtudiant: "777838633" },
-      {id: 2, matriculeEtudiant: "Et2-01052023123600-@", nomEtudiant: "Ndiaye", prenomEtudiant: "Mamadou", dateNaissEtudiant: new Date("01/14/1999"), addresseEtudiant: "gueultapée", telEtudiant: "777838633" },
-      {id: 3, matriculeEtudiant: "Et3-01052023123600-@", nomEtudiant: "Ka", prenomEtudiant: "Mamadou", dateNaissEtudiant: new Date("01/14/1999"), addresseEtudiant: "gueultapée", telEtudiant: "777838633" },
-      {id: 4, matriculeEtudiant: "Et4-01052023123600-@", nomEtudiant: "SOW", prenomEtudiant: "Mamadou", dateNaissEtudiant: new Date("01/14/1999"), addresseEtudiant: "gueultapée", telEtudiant: "777838633" },
-    ];
+  constructor( public datepipe: DatePipe, private http: HttpClient) {
+   
   }
-  listeEtudiant(): Etudiant[] {
-    return this.trierEtudiants();
+  // listeEtudiant(): Observable<Etudiant[]> {
+  //   console.log('getPeople '+this.baseURL + 'people')
+  //   return this.http.get<Etudiant[]>(this.baseURL + 'etudiants')
+  // }
+ 
+  ajouterEtudiant(etudiant:Etudiant): Observable<any> {
+    const headers = { 'content-type': 'application/json'}  
+    const body = JSON.stringify(etudiant);
+    console.log("body---"+body)
+    let response = this.http.post(`${this.baseURL}/etudiants`, body,{'headers':headers})
+    console.log("response---"+response);
+    return response
   }
 
-  ajouterEtudiant(etu: Etudiant) {
-    this.etudiants.push(etu);
+
+  listeEtudiant() {
+    this.http.get(`${this.baseURL}/etudiants/`).subscribe(res => {
+      this.etudiants = res as Etudiant[]
+      this.trierEtudiants() 
+    }) 
+  }
+  listeClasses() {
+    this.http.get(`${this.baseURL}/classes/`).subscribe(res => {
+      this.classes = res as Classe[]
+      console.log("classe---"+this.classes);
+      
+    }) 
   }
 
-  consulterEtudiant(matricule: string): Etudiant {
-    this.etudiant = this.etudiants.find(e => e.matriculeEtudiant == matricule)!;
+  consulterEtudiant(id: number): Etudiant {
+    this.etudiant = this.etudiants.find(e => e.id == id)!;
     return this.etudiant;
   }
 
   supprimerEtudiant(etu: Etudiant) {
-
-    const index = this.etudiants.indexOf(etu, 0);
-    if (index > -1) {
-      this.etudiants.splice(index, 1);
-    }
-    //ou Bien
-    /* this.produits.forEach((cur, index) => {
-    if(prod.idProduit === cur.idProduit) { this.produits.splice(index, 1);
-    } }); */
-  }
-
-  compare(a : Etudiant, b: Etudiant){
-      
+    this.http.delete(`${this.baseURL}/etudiants/${etu.id}`)
+        .subscribe({
+            next: data => {
+                console.log(data);
+            },
+            error: error => {
+                console.error('There was an error!', error);
+            }
+      });
   }
 
   trierEtudiants(): Etudiant[] {
-    //this.etudiants.sort((a, b) => a!.nomEtudiant - b.last_nom);
-
     this.etudiants = this.etudiants.sort((a, b) => {
       if (a.nomEtudiant && b.nomEtudiant) {
-        if (a.nomEtudiant < b.nomEtudiant) {
+        if (a.nomEtudiant.toLowerCase() < b.nomEtudiant.toLowerCase()) {
           return -1;
         }
-        if (a.nomEtudiant > b.nomEtudiant) {
+        if (a.nomEtudiant.toLocaleLowerCase() > b.nomEtudiant.toLocaleLowerCase()) {
           return 1;
         }
       }
       return 0;
     });
-    return this.etudiants 
-
-   
-
-    // this.etudiants = this.etudiants.sort((n1,n2) => {
-    // if (n1.nomEtudiant > n2.nomEtudiant) { return 1;
-    // }
-    // if (n1.nomEtudiant < n2.nomEtudiant) {
-    // return -1; }
-    // return 0; });
+    return this.etudiants
   }
 
+  updateEtudiant(etu: any): Observable<any> {
+    return this.http.patch(`${this.baseURL}/etudiants/${etu.id}`, etu)
+}
 
-  updateEtudiant(e: Etudiant) {
-    this.supprimerEtudiant(e);
-    this.ajouterEtudiant(e);
+  generateMatricule():string{
+    var date = new Date()
+    let date_string = this.datepipe.transform(date, 'ddMMyyyyhhmmss'); 
+    return "Et-"+date_string+"-@"
   }
 }
 

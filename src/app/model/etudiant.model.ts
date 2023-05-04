@@ -6,4 +6,10 @@ export class Etudiant {
     dateNaissEtudiant? : Date ;
     addresseEtudiant? : string;
     telEtudiant? : string;
+    classeId? : number
+}
+
+export class Classe {
+    id? : number;
+    libelle? : string;
 }
