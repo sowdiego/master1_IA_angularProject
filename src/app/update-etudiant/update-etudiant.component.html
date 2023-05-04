@@ -31,8 +31,9 @@
                 </div>
                 <div class="col-sm-10 col-md-10 col-lg-10">
                     <label>Classe</label>
-                    <select #cricket (change)="update($event)" class="form-control">
-                        <option *ngFor="let classe of etudiantService.classes" [value]="classe.id">
+                    <select #cricket name="classe" (change)="onChange()" [(ngModel)]="selectedClasse" class="form-control">
+                        <option value="" disabled selected="selected">  Selectionner la classe</option>
+                        <option *ngFor="let classe of etudiantService.classes" [ngValue]="classe" >
                             {{classe.libelle}}
                         </option>
                     </select>

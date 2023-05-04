@@ -1,44 +1,17 @@
 {
   "etudiants": [
     {
-      "id": 2,
-      "matriculeEtudiant": "Et2-01052023123600-@",
-      "nomEtudiant": "Ndiaye",
-      "prenomEtudiant": "Mamad",
-      "dateNaissEtudiant": "2023-05-12",
-      "addresseEtudiant": "gueultapée",
-      "telEtudiant": "777838633",
-      "classeId": 2
-    },
-    {
-      "id": 3,
-      "matriculeEtudiant": "Et3-01052023123600-@",
-      "nomEtudiant": "Kane",
-      "prenomEtudiant": "Salif",
-      "dateNaissEtudiant": "2023-05-27",
-      "addresseEtudiant": "gueultapée",
-      "telEtudiant": "777838633",
-      "classeId": 3
-    },
-    {
-      "id": 4,
-      "matriculeEtudiant": "Et4-01052023123600-@",
-      "nomEtudiant": "SY",
-      "prenomEtudiant": "Ibrahima diof",
-      "dateNaissEtudiant": "2023-05-21",
-      "addresseEtudiant": "gueultapée",
-      "telEtudiant": "777838633",
-      "classeId": 1
-    },
-    {
       "matriculeEtudiant": "Et-03052023074046-@",
       "nomEtudiant": "Salade",
-      "prenomEtudiant": "Lamine",
+      "prenomEtudiant": "Laminess",
       "dateNaissEtudiant": "2023-05-13",
       "addresseEtudiant": "sangalkam",
       "telEtudiant": "00000000",
       "id": 5,
-      "classeId": 2
+      "classe": {
+        "id": 2,
+        "libelle": "GL"
+      }
     },
     {
       "matriculeEtudiant": "Et-03052023091055-@",
@@ -48,7 +21,36 @@
       "addresseEtudiant": "sangalkam",
       "telEtudiant": "00000000",
       "id": 6,
-      "classeId": 2
+      "classe": {
+        "id": 1,
+        "libelle": "IAGE"
+      }
+    },
+    {
+      "matriculeEtudiant": "Et-04052023050531-@",
+      "nomEtudiant": "Sy",
+      "prenomEtudiant": "Oumar",
+      "dateNaissEtudiant": "2023-06-04",
+      "addresseEtudiant": "louga",
+      "telEtudiant": "999999999",
+      "classe": {
+        "id": 3,
+        "libelle": "RT"
+      },
+      "id": 7
+    },
+    {
+      "matriculeEtudiant": "Et-04052023073836-@",
+      "nomEtudiant": "Sall",
+      "prenomEtudiant": "Lamine",
+      "dateNaissEtudiant": "2023-05-20",
+      "addresseEtudiant": "sangalkam",
+      "telEtudiant": "00000000",
+      "classe": {
+        "id": 3,
+        "libelle": "RT"
+      },
+      "id": 8
     }
   ],
   "classes": [

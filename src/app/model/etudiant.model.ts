@@ -6,7 +6,7 @@ export class Etudiant {
     dateNaissEtudiant? : Date ;
     addresseEtudiant? : string;
     telEtudiant? : string;
-    classeId? : number
+    classe? : any
 }
 
 export class Classe {

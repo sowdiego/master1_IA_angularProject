@@ -15,6 +15,7 @@
                     <th>Date de Naissance</th>
                     <th>Addresse</th>
                     <th>Numéro de telephone</th>
+                    <th>Classe</th>
                 </tr>
                 <tbody *ngFor="let etudiant of etudiantService.etudiants | filter: keyWord">
                     <tr>
@@ -24,6 +25,7 @@
                         <td>{{etudiant.dateNaissEtudiant | date:'dd/MM/yyyy'}}</td>
                         <td>{{etudiant.addresseEtudiant}}</td>
                         <td>{{etudiant.telEtudiant}}</td>
+                        <td>{{etudiant.classe.libelle}}</td>
                         <td><a class="btn btn-danger" (click)="supprimerProduit(etudiant)">Supprimer</a></td>
                         <td><a class="btn btn-success"
                                 [routerLink]="['/update-etudiant',etudiant.id]">Modifier</a></td>

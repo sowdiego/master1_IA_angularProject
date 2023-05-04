@@ -11,6 +11,7 @@ import { DatePipe } from '@angular/common';
 })
 export class AddEtudiantComponent implements OnInit{
   newEtudiant = new Etudiant();
+  selectedClasse: any
   constructor(public etudiantService: EtudiantService,  private router :Router ) { }
 
   ngOnInit(): void { 
@@ -26,11 +27,10 @@ export class AddEtudiantComponent implements OnInit{
       })      
   }
 
-  update(event: any){
-    console.log(event);
-    
+  onChange(){
+    console.log(this.selectedClasse);
+    this.newEtudiant.classe = this.selectedClasse
   }
-   
 
    
 

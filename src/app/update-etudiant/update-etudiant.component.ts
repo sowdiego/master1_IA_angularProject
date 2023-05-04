@@ -10,13 +10,14 @@ import { EtudiantService } from '../services/etudiant.service';
 })
 export class UpdateEtudiantComponent implements OnInit {
    currentEtudiant = new Etudiant();
-
+   selectedClasse: any
   constructor(private activatedRoute: ActivatedRoute, public etudiantService: EtudiantService, private router :Router,) { }
   
   ngOnInit() {
   console.log(this.activatedRoute.snapshot. params['id']);
   
   this.currentEtudiant = this.etudiantService.consulterEtudiant(this.activatedRoute.snapshot. params['id']); 
+  this.selectedClasse = this.currentEtudiant.classe
   console.log(this.currentEtudiant);
   }
 
@@ -34,8 +35,8 @@ export class UpdateEtudiantComponent implements OnInit {
         })      
     }
 
-    update(event: any){
-      console.log(event);
+    onChange(){
+      console.log(this.selectedClasse);
       
     }
 
