@@ -1,0 +1,18 @@
+<div class="container-fluid h-100 d-flex align-items-center justify-content-center">
+    <div class="card shadow mb-4 card-padding" style="width: 50%;">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Classe</th>
+                    <th>Effectctif</th>
+                </tr>
+                <tbody *ngFor="let classe of etudiantService.classes">
+                    <tr>
+                        <td>{{classe.libelle}}</td>
+                        <td>{{getNbEtudiant(classe.libelle)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

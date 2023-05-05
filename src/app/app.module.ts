@@ -10,6 +10,7 @@ import { UpdateEtudiantComponent } from './update-etudiant/update-etudiant.compo
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ClassesComponent } from './classes/classes.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     EtudiantsComponent,
     AddEtudiantComponent,
     UpdateEtudiantComponent,
+    ClassesComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,5 @@ export class Etudiant {
 }
 
 export class Classe {
-    id? : number;
     libelle? : string;
 }

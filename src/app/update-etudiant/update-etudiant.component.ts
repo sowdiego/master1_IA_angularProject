@@ -21,11 +21,6 @@ export class UpdateEtudiantComponent implements OnInit {
   console.log(this.currentEtudiant);
   }
 
-  // updateEtudiant(){
-  //    //console.log(this.currentProduit); 
-  //    this.etudiantService.updateEtudiant(this.currentEtudiant);
-  //    this.router.navigate(['etudiants']);
-  //   }
 
   updateEtudiant() {
       this.etudiantService.updateEtudiant(this.currentEtudiant)
@@ -37,7 +32,7 @@ export class UpdateEtudiantComponent implements OnInit {
 
     onChange(){
       console.log(this.selectedClasse);
-      
+      this.currentEtudiant.classe = this.selectedClasse
     }
 
 }

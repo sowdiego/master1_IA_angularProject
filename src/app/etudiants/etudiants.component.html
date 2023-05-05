@@ -2,7 +2,7 @@
     <div class="card shadow mb-4 card-padding" style="width: 80%;">
         <div class="row" style="margin-top: 20px;margin-left: 20px;">
             <div class="col-md-8">
-                <input type="text" placeholder="Recherche par nom, prénom, matricule" [(ngModel)]="keyWord" name="key"
+                <input type="text" placeholder="Recherche par nom, prénom, matricule, classe" [(ngModel)]="keyWord" name="key"
                     class="form-control">
             </div>
         </div>
@@ -26,9 +26,9 @@
                         <td>{{etudiant.addresseEtudiant}}</td>
                         <td>{{etudiant.telEtudiant}}</td>
                         <td>{{etudiant.classe.libelle}}</td>
-                        <td><a class="btn btn-danger" (click)="supprimerProduit(etudiant)">Supprimer</a></td>
+                        <td><a class="btn btn-danger" (click)="supprimerProduit(etudiant)"><span><i class="bi bi-trash3-fill"></i></span></a></td>
                         <td><a class="btn btn-success"
-                                [routerLink]="['/update-etudiant',etudiant.id]">Modifier</a></td>
+                                [routerLink]="['/update-etudiant',etudiant.id]"><span><i class="bi bi-pencil-square"></i></span></a></td>
                     </tr>
                 </tbody>
             </table>

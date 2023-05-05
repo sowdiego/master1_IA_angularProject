@@ -2,15 +2,14 @@
   "etudiants": [
     {
       "matriculeEtudiant": "Et-03052023074046-@",
-      "nomEtudiant": "Salade",
-      "prenomEtudiant": "Laminess",
+      "nomEtudiant": "Ndiaye",
+      "prenomEtudiant": "Babacar",
       "dateNaissEtudiant": "2023-05-13",
       "addresseEtudiant": "sangalkam",
-      "telEtudiant": "00000000",
+      "telEtudiant": "778888888",
       "id": 5,
       "classe": {
-        "id": 2,
-        "libelle": "GL"
+        "libelle": "IA"
       }
     },
     {
@@ -19,11 +18,10 @@
       "prenomEtudiant": "Lamine",
       "dateNaissEtudiant": "2019-06-05",
       "addresseEtudiant": "sangalkam",
-      "telEtudiant": "00000000",
+      "telEtudiant": "780000000",
       "id": 6,
       "classe": {
-        "id": 1,
-        "libelle": "IAGE"
+        "libelle": "IA"
       }
     },
     {
@@ -32,42 +30,60 @@
       "prenomEtudiant": "Oumar",
       "dateNaissEtudiant": "2023-06-04",
       "addresseEtudiant": "louga",
-      "telEtudiant": "999999999",
+      "telEtudiant": "779999999",
       "classe": {
-        "id": 3,
         "libelle": "RT"
       },
       "id": 7
     },
     {
-      "matriculeEtudiant": "Et-04052023073836-@",
-      "nomEtudiant": "Sall",
+      "matriculeEtudiant": "Et-05052023114341-@",
+      "nomEtudiant": "Sy",
       "prenomEtudiant": "Lamine",
-      "dateNaissEtudiant": "2023-05-20",
+      "dateNaissEtudiant": "2023-06-04",
       "addresseEtudiant": "sangalkam",
-      "telEtudiant": "00000000",
+      "telEtudiant": "765555555",
       "classe": {
-        "id": 3,
         "libelle": "RT"
       },
-      "id": 8
+      "id": 9
+    },
+    {
+      "matriculeEtudiant": "Et-05052023032615-@",
+      "nomEtudiant": "Sall",
+      "prenomEtudiant": "Saliou",
+      "dateNaissEtudiant": "2023-06-10",
+      "addresseEtudiant": "louga",
+      "telEtudiant": "786666666",
+      "classe": {
+        "libelle": "IA"
+      },
+      "id": 10
+    },
+    {
+      "matriculeEtudiant": "Et-05052023033846-@",
+      "nomEtudiant": "Sy",
+      "prenomEtudiant": "Saliou",
+      "dateNaissEtudiant": "2023-05-21",
+      "addresseEtudiant": "sangalkam",
+      "telEtudiant": "764444444",
+      "classe": {
+        "libelle": "IA"
+      },
+      "id": 11
     }
   ],
   "classes": [
     {
-      "id": 1,
       "libelle": "IAGE"
     },
     {
-      "id": 2,
       "libelle": "GL"
     },
     {
-      "id": 3,
       "libelle": "RT"
     },
     {
-      "id": 4,
       "libelle": "IA"
     }
   ],
